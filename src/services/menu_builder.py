@@ -32,21 +32,25 @@ class MenuBuilder:
                 dish.name
                 for dish in menu_data
                 if restriction not in dish.get_restrictions()
+                and self.inventory.check_recipe_availability(dish.recipe)
             ],
             "price": [
                 dish.price
                 for dish in menu_data
                 if restriction not in dish.get_restrictions()
+                and self.inventory.check_recipe_availability(dish.recipe)
             ],
             "ingredients": [
                 dish.get_ingredients()
                 for dish in menu_data
                 if restriction not in dish.get_restrictions()
+                and self.inventory.check_recipe_availability(dish.recipe)
             ],
             "restrictions": [
                 dish.get_restrictions()
                 for dish in menu_data
                 if restriction not in dish.get_restrictions()
+                and self.inventory.check_recipe_availability(dish.recipe)
             ],
         }
 
